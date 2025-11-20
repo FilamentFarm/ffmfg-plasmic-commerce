@@ -8,8 +8,7 @@ import {
 export const dynamic = 'force-dynamic';
 
 export default async function PlasmicTestPage() {
-  // This name must match your Plasmic page name.
-  // From your screenshot it looks like "Homepage".
+  // This name must match your Plasmic page name in the Plasmic editor.
   const componentName = 'Homepage';
 
   const plasmicData = await PLASMIC.fetchComponentData(componentName);
