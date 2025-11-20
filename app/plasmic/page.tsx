@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { PLASMIC } from '@/lib/plasmic-init';
+import { PLASMIC } from '../../lib/plasmic-init';
 import {
   PlasmicRootProvider,
   PlasmicComponent,
