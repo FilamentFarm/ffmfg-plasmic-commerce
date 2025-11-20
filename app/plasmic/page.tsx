@@ -5,9 +5,9 @@ import {
   PlasmicRootProvider,
   PlasmicComponent,
 } from '@plasmicapp/loader-nextjs';
-import { PLASMIC } from '@/lib/plasmic-init';
+import { PLASMIC } from 'lib/plasmic-init'; // <-- fixed import
 
-const COMPONENT_NAME = 'Homepage'; // or whatever your Plasmic page is called
+const COMPONENT_NAME = 'Homepage'; // make sure this matches your Plasmic page name
 
 export default function PlasmicTestPage() {
   const [plasmicData, setPlasmicData] = React.useState<any | null>(null);
@@ -26,4 +26,3 @@ export default function PlasmicTestPage() {
     </PlasmicRootProvider>
   );
 }
-
