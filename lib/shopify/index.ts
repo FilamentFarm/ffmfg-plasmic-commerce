@@ -368,22 +368,28 @@ export async function getMenu(handle: string): Promise<Menu[]> {
   cacheTag(TAGS.collections);
   cacheLife('days');
 
-  const res = await shopifyFetch<ShopifyMenuOperation>({
-    query: getMenuQuery,
-    variables: {
-      handle
-    }
-  });
+  try {
+    const res = await shopifyFetch<ShopifyMenuOperation>({
+      query: getMenuQuery,
+      variables: {
+        handle,
+      },
+    });
 
-  return (
-    res.body?.data?.menu?.items.map((item: { title: string; url: string }) => ({
+    const items = res.body?.data?.menu?.items ?? [];
+
+    return items.map((item: { title: string; url: string }) => ({
       title: item.title,
       path: item.url
         .replace(domain, '')
         .replace('/collections', '/search')
-        .replace('/pages', '')
-    })) || []
-  );
+        .replace('/pages', ''),
+    }));
+  } catch (error) {
+    console.error('Error fetching menu from Shopify', error);
+    // Fallback: don't break the build if Shopify menu fails
+    return [];
+  }
 }
 
 export async function getPage(handle: string): Promise<Page> {
