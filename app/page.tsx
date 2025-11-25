@@ -1,6 +1,4 @@
-import { Carousel } from 'components/carousel';
-import { ThreeItemGrid } from 'components/grid/three-items';
-import Footer from 'components/layout/footer';
+import PlasmicHomepage from 'components/plasmic-homepage';
 
 export const metadata = {
   description:
@@ -11,11 +9,5 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  return (
-    <>
-      <ThreeItemGrid />
-      <Carousel />
-      <Footer />
-    </>
-  );
+  return <PlasmicHomepage />;
 }
