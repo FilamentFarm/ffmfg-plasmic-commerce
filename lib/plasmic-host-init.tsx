@@ -1,4 +1,3 @@
-'use client';
 
 import { PLASMIC } from './plasmic-init';
 import { Navbar } from 'components/layout/navbar';
